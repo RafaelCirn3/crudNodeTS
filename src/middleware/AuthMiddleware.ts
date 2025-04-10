@@ -38,7 +38,7 @@ export const authorizeUser = (req: Request, res: Response, next: NextFunction): 
     const userIdFromParams = parseInt(req.params.id);
 
     if (userIdFromToken !== userIdFromParams) {
-        res.status(403).json({ message: 'Você não tem permissão para acessar esse recurso.' });
+        res.status(403).json({ message: 'Você não tem permissão para editar ou deletar dados de outros usuários.' });
         return;
     }
 
