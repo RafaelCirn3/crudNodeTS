@@ -24,12 +24,12 @@ export const getUserById = async (req: Request, res: Response): Promise<void> =>
 };
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
-    const { name, email } = req.body;
+    const { name, email, age } = req.body;
     if (!name || !email) {
         res.status(400).json({ message: 'name e e-mail são obrigatórios.' });
     }
     try {
-        const newUser = await UserStore.create({ name: name, email });
+        const newUser = await UserStore.create({ name: name, email, age });
         res.status(201).json(newUser);
     } catch (error) {
         res.status(500).json({ message: 'Erro ao criar usuário.' });
