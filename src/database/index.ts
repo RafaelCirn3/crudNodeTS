@@ -10,7 +10,15 @@ export const sequelize = new Sequelize(
     {
         host: process.env.DB_HOST,
         dialect: 'mysql',
-        logging: false,
+        retry: {
+            max: 10 // tenta 10 vezes
+        },
+        pool: {
+            max: 5,
+            min: 0,
+            acquire: 30000, // espera até 30s para obter conexão
+            idle: 10000
+        }
     }
 );
 
