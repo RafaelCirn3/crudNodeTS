@@ -1,15 +1,25 @@
 import { Request, Response } from 'express';
 import { UserStore } from '../services/UserServices';
 
-export const getAllUsers = async (_req: Request, res: Response): Promise<void> => {
+
+export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const offset = (page - 1) * limit;
+
     try {
-        const users = await UserStore.getAll();
-        res.json(users);
+        const { count, rows } = await UserStore.getPaginated(offset, limit);
+
+        res.json({
+            total: count,
+            page,
+            totalPages: Math.ceil(count / limit),
+            users: rows,
+        });
     } catch (error) {
-        res.status(500).json({ message: 'Erro ao buscar usuários.' });
+        res.status(500).json({ message: 'Erro ao buscar usuários com paginação.' });
     }
 };
-
 export const getUserById = async (req: Request, res: Response): Promise<void> => {
     const id = Number(req.params.id);
     try {

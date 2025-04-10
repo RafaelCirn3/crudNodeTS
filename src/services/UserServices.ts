@@ -12,6 +12,12 @@ export const UserStore = {
         return user ? (user.toJSON() as UserInterface) : null;
     },
 
+    getPaginated: async (offset: number, limit: number): Promise<{ count: number; rows: UserInterface[] }> => {
+        const allUsers = await UserStore.getAll();
+        const paginatedUsers = allUsers.slice(offset, offset + limit);
+        return { count: allUsers.length, rows: paginatedUsers };
+    },
+
     create: async (user: UserInterface): Promise<UserInterface> => {
         const createdUser = await User.create(user as any);
         return createdUser.toJSON() as UserInterface;
@@ -34,4 +40,4 @@ export const UserStore = {
         const user = await User.findOne({ where: whereClause });
         return !!user;
     }
-};
+}
