@@ -4,6 +4,7 @@ import {
     getUserById,
     createUser,
     updateUser,
+    parcialUpdateUser,
     deleteUser
 } from '../controllers/UserController';
 import { login } from '../controllers/AuthController';
@@ -24,6 +25,7 @@ router.post('/users', createUser);
 router.get('/users', authMiddleware, getAllUsers);
 router.get('/users/:id', authMiddleware, getUserById);
 router.put('/users/:id', authMiddleware,authorizeUser, updateUser); 
+router.patch('/users/:id',authMiddleware, parcialUpdateUser); 
 router.delete('/users/:id', authMiddleware,authorizeUser, deleteUser);
 
 export default router;

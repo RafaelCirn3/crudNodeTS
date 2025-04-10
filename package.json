@@ -20,6 +20,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "crud_node_express": "file:",
     "dotenv": "^16.4.7",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.0",

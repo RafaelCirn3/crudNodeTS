@@ -56,7 +56,7 @@ npm run dev
 
 - `POST /api/users`  
   Cria um novo usuário.  
-  Body: `{ "nome": "Nome do Usuário", "email": "usuario@email.com" }`
+  Body: `{ "name": "nome do Usuário", "email": "usuario@email.com" }`
 
 ### Rotas Protegidas (Requer Token JWT)
 
@@ -70,7 +70,7 @@ Todas as rotas abaixo exigem o envio do token JWT no cabeçalho `Authorization` 
 
 - `PUT /api/users/:id`  
   Atualiza os dados de um usuário.  
-  Body: `{ "nome": "Novo Nome", "email": "novo@email.com" }`
+  Body: `{ "name": "Novo nome", "email": "novo@email.com" }`
 
 - `DELETE /api/users/:id`  
   Exclui um usuário.
