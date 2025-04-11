@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { UserStore } from '../services/UserServices';
-
+import { User } from '../models/UserModel';
 
 export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
     const page = parseInt(req.query.page as string) || 1;
@@ -37,6 +37,14 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
     const { name, email, age } = req.body;
     if (!name || !email) {
         res.status(400).json({ message: 'name e e-mail são obrigatórios.' });
+    }
+    try {
+        if (await UserStore.existsByEmail(email)) {
+            res.status(400).json({ message: 'email já está em uso.' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Erro ao verificar e-mail.' });
     }
     try {
         const newUser = await UserStore.create({ name: name, email, age });

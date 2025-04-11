@@ -1,12 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import router from './src/routers/UserRoutes';
-import { sequelize } from './src/database';
+import router from './routers/UserRoutes';
+import { sequelize } from './database';
 
 
 dotenv.config();
 
-const app = express();
+export const app = express();
 app.use(express.json());
 
 app.use('/api', router);
