@@ -124,6 +124,7 @@ Garante que o usuário autenticado só possa acessar ou modificar seus próprios
 - Foi implementado um sistema de retry no Sequelize para garantir que a conexão só ocorra após o banco estar disponível.
 - O token JWT expira em 1 hora.
 
-## Licença
-
-Este projeto está licenciado sob a licença MIT.
+# FEITO POR:
+```
+      Rafael Cirne Medeiros, Estudante de Ciências da Computação, Unipê.
+```
