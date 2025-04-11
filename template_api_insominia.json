@@ -1,0 +1,137 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2025-04-10T00:00:00.000Z",
+    "__export_source": "rafael-api",
+    "resources": [
+        {
+            "_id": "wrk_usuarios_api",
+            "name": "API Usuários",
+            "_type": "workspace"
+        },
+        {
+            "_id": "env_base",
+            "_type": "environment",
+            "parentId": "wrk_usuarios_api",
+            "name": "Base Environment",
+            "data": {
+                "base_url": "http://localhost:3000/api",
+                "jwt_token": ""
+            }
+        },
+        {
+            "_id": "fld_auth",
+            "_type": "request_group",
+            "parentId": "wrk_usuarios_api",
+            "name": "Auth"
+        },
+        {
+            "_id": "req_login",
+            "_type": "request",
+            "parentId": "fld_auth",
+            "name": "Login",
+            "method": "POST",
+            "url": "{{ base_url }}/auth/login",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"email\": \"rafael@email.com\",\n  \"password\": \"senha123\"\n}"
+            }
+        },
+        {
+            "_id": "fld_users",
+            "_type": "request_group",
+            "parentId": "wrk_usuarios_api",
+            "name": "Usuários"
+        },
+        {
+            "_id": "req_create_user",
+            "_type": "request",
+            "parentId": "fld_users",
+            "name": "Criar Usuário",
+            "method": "POST",
+            "url": "{{ base_url }}/users",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"name\": \"Rafael\",\n  \"email\": \"rafael@email.com\",\n  \"password\": \"senha123\",\n  \"age\": 25\n}"
+            }
+        },
+        {
+            "_id": "req_get_all_users",
+            "_type": "request",
+            "parentId": "fld_users",
+            "name": "Listar Todos os Usuários",
+            "method": "GET",
+            "url": "{{ base_url }}/users",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{ jwt_token }}"
+                }
+            ]
+        },
+        {
+            "_id": "req_get_user_by_id",
+            "_type": "request",
+            "parentId": "fld_users",
+            "name": "Buscar Usuário por ID",
+            "method": "GET",
+            "url": "{{ base_url }}/users/1",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{ jwt_token }}"
+                }
+            ]
+        },
+        {
+            "_id": "req_update_user",
+            "_type": "request",
+            "parentId": "fld_users",
+            "name": "Atualizar Usuário (PUT)",
+            "method": "PUT",
+            "url": "{{ base_url }}/users/1",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{ jwt_token }}"
+                }
+            ],
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"name\": \"Rafael Atualizado\",\n  \"email\": \"rafael@email.com\",\n  \"password\": \"novaSenha123\",\n  \"age\": 26\n}"
+            }
+        },
+        {
+            "_id": "req_patch_user",
+            "_type": "request",
+            "parentId": "fld_users",
+            "name": "Atualizar Parcialmente (PATCH)",
+            "method": "PATCH",
+            "url": "{{ base_url }}/users/1",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{ jwt_token }}"
+                }
+            ],
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"age\": 27\n}"
+            }
+        },
+        {
+            "_id": "req_delete_user",
+            "_type": "request",
+            "parentId": "fld_users",
+            "name": "Deletar Usuário",
+            "method": "DELETE",
+            "url": "{{ base_url }}/users/1",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{ jwt_token }}"
+                }
+            ]
+        }
+    ]
+}
