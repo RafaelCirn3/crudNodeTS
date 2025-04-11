@@ -90,6 +90,38 @@ Todas as rotas abaixo exigem o envio do token JWT no cabeçalho `Authorization` 
 - `DELETE /api/users/:id`  
   Exclui um usuário.
 
+## 🧪 Como importar as rotas no Insomnia
+
+Para facilitar os testes da API, você pode importar um arquivo JSON com todas as rotas configuradas. Siga os passos abaixo:
+
+### 📥 Passo a passo para importar no Insomnia
+
+1. Abra o **Insomnia**.
+2. Clique no menu principal (ícone de hambúrguer no canto superior esquerdo).
+3. Selecione **Import > From File**.
+4. Escolha o arquivo `template_api_insomnia.json` incluído neste repositório.
+5. O workspace "API Usuários" será criado automaticamente com todas as requisições organizadas:
+    📁 Auth
+    - Login
+    - 📁 Usuários
+    - Criar Usuário
+    - Listar Todos os Usuários
+    - Buscar Usuário por ID
+    - Atualizar Usuário (PUT)
+    - Atualizar Parcialmente (PATCH)
+    - Deletar Usuário
+
+### 🔐 Autenticação
+
+- Após fazer login com um usuário válido, copie o token JWT retornado na resposta.
+- No Insomnia, vá até o menu lateral esquerdo, clique no ícone de engrenagem do ambiente `Base Environment` e cole o token na variável `jwt_token`.
+
+```json
+{
+  "base_url": "http://localhost:3000/api",
+  "jwt_token": "cole_seu_token_aqui"
+}
+```
 ## Middleware
 
 ### `authMiddleware`
