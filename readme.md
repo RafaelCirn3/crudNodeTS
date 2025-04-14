@@ -13,8 +13,8 @@ Este projeto é um CRUD básico de usuários utilizando Node.js, Express e Seque
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/RafaelCirn3/crudNodeTS
+cd crudNodeTS
 npm install
 ```
 
