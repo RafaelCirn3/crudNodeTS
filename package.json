@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "teste": "",
+    "test": "jest --runInBand",
     "dev": "npx ts-node-dev server.ts"
   },
   "keywords": [],
@@ -12,10 +12,15 @@
   "description": "",
   "devDependencies": {
     "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.14.0",
     "@types/sequelize": "^4.28.20",
+    "@types/supertest": "^6.0.3",
     "express": "^5.1.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.3.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   },
