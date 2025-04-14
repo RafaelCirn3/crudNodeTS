@@ -11,7 +11,7 @@ export const sequelize = new Sequelize(
         host: process.env.DB_HOST,
         dialect: 'mysql',
         retry: {
-            max: 10 // tenta 10 vezes
+            max: 10
         },
         pool: {
             max: 5,
