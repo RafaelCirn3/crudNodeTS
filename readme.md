@@ -1,7 +1,7 @@
 
 # CRUD de Usuários com Node.js, Express, Sequelize, MySQL e Docker
 
-Este projeto é um CRUD básico de usuários utilizando Node.js, Express e Sequelize com banco de dados MySQL. Ele permite criar, listar, atualizar e deletar usuários, com autenticação via JWT e proteção de rotas. Agora com suporte completo à **dockerização** para facilitar o setup e execução do projeto.
+Este projeto é um CRUD básico de usuários utilizando Node.js, Express e Sequelize com banco de dados MySQL. Ele permite criar, listar, atualizar e deletar usuários, com autenticação via JWT e proteção de rotas. 
 
 ## Pré-requisitos
 
@@ -20,21 +20,7 @@ npm install
 
 ## Configuração
 
-Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
-
-```env
-PORT=3000
-
-# JWT
-JWT_SECRET=sua_chave_secreta
-
-# DATABASE
-DB_NAME=CRUDUSER
-DB_USER=seu_usuario
-DB_PASS=sua_senha
-DB_HOST=db
-```
-
+Crie um arquivo `.env` na raiz do projeto seguindo o exemplo preesente no .env.example
 
 ## Utilizando Docker
 
@@ -149,11 +135,14 @@ Garante que o usuário autenticado só possa acessar ou modificar seus próprios
 - **Docker**
 - **JWT**
 - **TypeScript**
+- **jest**
+- **ts-test**
 
 ## Observações
 
 - Com a dockerização, não é necessário ter MySQL localmente.
 - Foi implementado um sistema de retry no Sequelize para garantir que a conexão só ocorra após o banco estar disponível.
+- para execução dos Testes, certifique-se de estar com o banco de dados Ligado para fins de execução 
 - O token JWT expira em 1 hora.
 
 # FEITO POR:
